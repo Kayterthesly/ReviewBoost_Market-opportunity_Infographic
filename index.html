@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReviewBoost: Market Opportunity Infographic</title>
+
+    <!-- OPEN GRAPH META TAGS for Social Sharing -->
+    <!-- Thumbnail size is typically 1200x630 for optimal display across platforms -->
+    <meta property="og:title" content="ReviewBoost Market Analysis: Quantifying the $500M Freelancer Credibility Opportunity">
+    <meta property="og:description" content="A comprehensive infographic detailing the freelance 'cold start' problem, market size (TAM/SAM/SOM), competitive edge, and growth pathways for ReviewBoost.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://your-domain.com/reviewboost-infographic">
+    <meta property="og:image" content="https://placehold.co/1200x630/004AAD/ffffff?text=ReviewBoost+Market+Analysis">
+    <!-- END OPEN GRAPH META TAGS -->
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'rb-dark-blue': '#002D69',
+              'rb-blue': '#004AAD',
+              'rb-bright-blue': '#0094FF',
+              'rb-light-blue': '#B3DFFF',
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body { 
+        font-family: 'Inter', sans-serif; 
+        background-color: #f4f7fa;
+      }
+      .chart-container {
+        position: relative;
+        width: 100%;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        height: 300px;
+        max-height: 400px;
+      }
+      @media (min-width: 768px) {
+        .chart-container {
+          height: 350px;
+        }
+      }
+      .flow-box {
+        @apply border-2 border-rb-blue bg-white rounded-lg p-4 text-center shadow-lg transition-all duration-300 hover:shadow-xl;
+      }
+      .flow-arrow {
+        @apply text-rb-bright-blue font-bold text-3xl mx-4 my-2;
+      }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <header class="bg-rb-dark-blue text-white p-8 shadow-lg">
+        <div class="container mx-auto text-center">
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-2">ReviewBoost</h1>
+            <p class="text-xl md:text-2xl font-light text-rb-light-blue">Quantifying the Market Opportunity for Verified Freelancer Credibility</p>
+        </div>
+    </header>
+
+    <nav class="sticky top-0 bg-white shadow-md z-10">
+        <div class="container mx-auto px-6 py-3 flex flex-wrap justify-center gap-x-4 md:gap-x-8 gap-y-2">
+            <a href="#problem" class="text-rb-blue hover:text-rb-bright-blue font-semibold text-sm md:text-base">The Problem</a>
+            <a href="#market" class="text-rb-blue hover:text-rb-bright-blue font-semibold text-sm md:text-base">Market Size</a>
+            <a href="#needs" class="text-rb-blue hover:text-rb-bright-blue font-semibold text-sm md:text-base">User Needs</a>
+            <a href="#competition" class="text-rb-blue hover:text-rb-bright-blue font-semibold text-sm md:text-base">Competition</a>
+            <a href="#ecosystem" class="text-rb-blue hover:text-rb-bright-blue font-semibold text-sm md:text-base">Our Model</a>
+            <a href="#opportunity" class="text-rb-blue hover:text-rb-bright-blue font-semibold text-sm md:text-base">Opportunity</a>
+        </div>
+    </nav>
+
+    <main class="container mx-auto p-4 md:p-8">
+
+        <section id="problem" class="my-8">
+            <div class="text-center max-w-3xl mx-auto mb-8">
+                <h2 class="text-3xl font-bold text-rb-dark-blue mb-4">The "Cold Start" Problem</h2>
+                <p class="text-lg text-gray-700">For millions of skilled freelancers entering platforms like Upwork and Fiverr, the greatest barrier to success isn't talent—it's the lack of initial reviews. This "cold start problem" creates a credibility gap that prevents them from competing for jobs. ReviewBoost is designed to solve this.</p>
+            </div>
+            <div class="bg-white rounded-lg shadow-xl p-8 max-w-2xl mx-auto text-center">
+                <h3 class="text-2xl font-semibold text-rb-blue mb-4">The Core Pain Point</h3>
+                <p class="text-gray-700 mb-6">Based on survey data from 850 new freelancers (0-2 years experience), the lack of reviews is the overwhelming primary barrier to securing consistent work.</p>
+                <div class="text-7xl md:text-8xl font-extrabold text-rb-bright-blue">78%</div>
+                <p class="text-xl font-semibold text-gray-800 mt-2">Cite "Low Review Count" as their #1 Barrier to Winning Jobs</p>
+            </div>
+        </section>
+
+        <section id="market" class="my-16">
+            <div class="text-center max-w-3xl mx-auto mb-8">
+                <h2 class="text-3xl font-bold text-rb-dark-blue mb-4">A Massive & Growing Market</h2>
+                <p class="text-lg text-gray-700">The freelance and gig economy is not a niche; it's a structural shift in the global workforce. This growth, combined with the platform-based review model, creates a significant and expanding addressable market for credibility-boosting services.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <div class="bg-white rounded-lg shadow-lg p-6 flex flex-col">
+                    <h3 class="text-2xl font-semibold text-rb-blue mb-4 text-center">The Primary Barrier to Entry</h3>
+                    <p class="text-gray-700 text-center mb-4">Data shows that for the vast majority of new freelancers, the lack of reviews is a more significant barrier than portfolio quality or pricing.</p>
+                    <div class="chart-container flex-grow">
+                        <canvas id="painPointChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-lg p-6 flex flex-col">
+                    <h3 class="text-2xl font-semibold text-rb-blue mb-4 text-center">Global Gig Economy Growth (Projected)</h3>
+                    <p class="text-gray-700 text-center mb-4">The market is expanding at a projected CAGR of 15.2%, creating a continuous influx of new freelancers who will face the "cold start" problem.</p>
+                    <div class="chart-container flex-grow">
+                        <canvas id="growthChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="needs" class="my-16">
+            <div class="text-center max-w-3xl mx-auto mb-8">
+                <h2 class="text-3xl font-bold text-rb-dark-blue mb-4">Understanding Freelancer Needs</h2>
+                <p class="text-lg text-gray-700">To build a successful platform, we must address the specific motivations and frustrations of our target users. Our research indicates freelancers are driven by tangible results and demand modern, accessible tools.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-lg shadow-lg p-6 flex flex-col">
+                    <h3 class="text-2xl font-semibold text-rb-blue mb-4 text-center">Primary Motivation for Investment</h3>
+                    <p class="text-gray-700 text-center mb-4">Freelancers are willing to invest in credibility services if they believe it leads directly to faster client acquisition and higher earning potential.</p>
+                    <div class="chart-container flex-grow">
+                        <canvas id="motivatorsChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-lg p-6 flex flex-col">
+                    <h3 class="text-2xl font-semibold text-rb-blue mb-4 text-center">Demand for Mobile & Tracking</h3>
+                    <p class="text-gray-700 text-center mb-4">A modern freelance tool is not optional. Users expect to track their progress and manage their profiles in real-time, on the go.</p>
+                    <div class="chart-container flex-grow">
+                        <canvas id="mobileChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="competition" class="my-16">
+            <div class="text-center max-w-3xl mx-auto mb-8">
+                <h2 class="text-3xl font-bold text-rb-dark-blue mb-4">The Competitive Landscape</h2>
+                <p class="text-lg text-gray-700">The current market for review solutions is fragmented and suffers from a massive trust deficit. "Review farms" offer scalability but no legitimacy, while simple endorsement tools lack verification. This leaves a clear, exploitable gap for a solution built on trust.</p>
+            </div>
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h3 class="text-2xl font-semibold text-rb-blue mb-4 text-center">How ReviewBoost Compares</h3>
+                <p class="text-gray-700 text-center mb-4">ReviewBoost's model (admin-vetted, skill-matched, mentorship-driven) directly addresses the weaknesses of existing solutions, positioning it as a high-trust, high-value market leader.</p>
+                <div class="chart-container max-w-2xl">
+                    <canvas id="radarChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section id="ecosystem" class="my-16">
+            <div class="text-center max-w-3xl mx-auto mb-8">
+                <h2 class="text-3xl font-bold text-rb-dark-blue mb-4">The ReviewBoost Growth Ecosystem</h2>
+                <p class="text-lg text-gray-700">Our greatest risk is single-use users. The ReviewBoost model mitigates this by creating a continuous growth ecosystem. Users who don't qualify for a review are not rejected; they are onboarded into a mentorship path, creating long-term value and retention.</p>
+            </div>
+            <div class="bg-white rounded-lg shadow-lg p-6 md:p-8">
+                <div class="flex flex-col items-center">
+                    
+                    <div class="flow-box w-full md:w-1/2">
+                        <div class="font-bold text-lg text-rb-dark-blue">1. New Freelancer Signs Up</div>
+                        <div class="text-gray-600">User connects platform profile (Upwork, Fiverr)</div>
+                    </div>
+
+                    <div class="flow-arrow transform rotate-90">↓</div>
+
+                    <div class="flow-box w-full md:w-1/2">
+                        <div class="font-bold text-lg text-rb-dark-blue">2. Smart Matching Engine Assessment</div>
+                        <div class="text-gray-600">Skills, portfolio, and profile are analyzed for review readiness</div>
+                    </div>
+
+                    <div class="flow-arrow transform rotate-90">↓</div>
+                    
+                    <div class="w-full flex flex-col md:flex-row justify-center gap-8">
+                        
+                        <div class="flex-1 flex flex-col items-center">
+                            <div class="w-full text-center mb-4">
+                                <span class="text-xl font-bold text-green-600 bg-green-100 border-2 border-green-500 rounded-full px-6 py-2">Path A: Qualified</span>
+                            </div>
+                            <div class="flow-box w-full">
+                                <div class="font-bold text-lg text-rb-dark-blue">3a. Receives Paid Review Request</div>
+                                <div class="text-gray-600">Matched with a vetted client for a real, paid task.</div>
+                            </div>
+                            <div class="flow-arrow transform rotate-90">↓</div>
+                            <div class="flow-box w-full">
+                                <div class="font-bold text-lg text-rb-dark-blue">4a. Admin-Approved Review</div>
+                                <div class="text-gray-600">Work is verified, and review is approved for quality & authenticity.</div>
+                            </div>
+                            <div class="flow-arrow transform rotate-90">↓</div>
+                            <div class="flow-box w-full bg-rb-light-blue border-rb-bright-blue">
+                                <div class="font-bold text-lg text-rb-dark-blue">5a. Published Credibility</div>
+                                <div class="text-gray-800">Freelancer's "cold start" problem is solved.</div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex-1 flex flex-col items-center">
+                            <div class="w-full text-center mb-4">
+                                <span class="text-xl font-bold text-orange-600 bg-orange-100 border-2 border-orange-500 rounded-full px-6 py-2">Path B: Not Yet Qualified</span>
+                            </div>
+                            <div class="flow-box w-full">
+                                <div class="font-bold text-lg text-rb-dark-blue">3b. Enters Growth Ecosystem</div>
+                                <div class="text-gray-600">Receives tailored resources, NOT a rejection.</div>
+                            </div>
+                            <div class="flow-arrow transform rotate-90">↓</div>
+                            <div class="flow-box w-full">
+                                <div class="font-bold text-lg text-rb-dark-blue">4. Mentorship & Learning</div>
+                                <div class="text-gray-600">Access to mentors, learning paths, and progress tracking.</div>
+                            </div>
+                            <div class="flow-arrow transform rotate-90">↓</div>
+                            <div class="flow-box w-full bg-rb-light-blue border-rb-bright-blue">
+                                <div class="font-bold text-lg text-rb-dark-blue">5b. Re-Assessment</div>
+                                <div class="text-gray-800">User is invited back for re-assessment, driving retention.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="opportunity" class="my-16">
+            <div class="text-center max-w-3xl mx-auto mb-8">
+                <h2 class="text-3xl font-bold text-rb-dark-blue mb-4">The Quantifiable Opportunity</h2>
+                <p class="text-lg text-gray-700">The market for freelancer credibility is vast. By focusing on our core target audience of new freelancers (SAM) and a strategic Year 1 goal (SOM), ReviewBoost has a clear and attainable path to significant revenue, with massive potential for expansion.</p>
+            </div>
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h3 class="text-2xl font-semibold text-rb-blue mb-4 text-center">Market Sizing (TAM/SAM/SOM)</h3>
+                <p class="text-gray-700 text-center mb-4">The total addressable market (platform-based freelancers) is valued in the billions. Our serviceable market (new freelancers in key niches) represents a $500M opportunity, with a $5M initial target.</p>
+                <div class="chart-container max-w-3xl">
+                    <canvas id="marketSizingChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="text-center p-8 mt-8 bg-rb-dark-blue text-rb-light-blue">
+        <p class="text-sm">Data synthesized for strategic analysis based on the ReviewBoost research brief.</p>
+        <p class="text-sm font-semibold mt-1">Lead Researcher: Kingsley Akenu</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            const colors = {
+                darkBlue: '#002D69',
+                blue: '#004AAD',
+                brightBlue: '#0094FF',
+                lightBlue: '#B3DFFF'
+            };
+
+            const customTooltipTitle = (tooltipItems) => {
+                const item = tooltipItems[0];
+                if (!item) { return ''; }
+                let label = item.chart.data.labels[item.dataIndex];
+                if (Array.isArray(label)) {
+                    return label.join(' ');
+                } else {
+                    return label;
+                }
+            };
+
+            const commonChartOptions = {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#1f2937'
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            title: customTooltipTitle
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: { color: '#4b5563' },
+                        grid: { display: false }
+                    },
+                    y: {
+                        ticks: { color: '#4b5563' },
+                        grid: { color: '#e5e7eb' }
+                    }
+                }
+            };
+            
+            const commonDoughnutOptions = {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            color: '#1f2937'
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            title: customTooltipTitle
+                        }
+                    }
+                }
+            };
+
+            new Chart(document.getElementById('painPointChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['"Low Reviews" Barrier', 'Other Barriers (Portfolio, Price, etc.)'],
+                    datasets: [{
+                        data: [78, 22],
+                        backgroundColor: [colors.brightBlue, colors.lightBlue],
+                        borderColor: '#ffffff',
+                        borderWidth: 2
+                    }]
+                },
+                options: commonDoughnutOptions
+            });
+
+            new Chart(document.getElementById('growthChart'), {
+                type: 'line',
+                data: {
+                    labels: ['2023', '2024', '2025 (Proj.)', '2026 (Proj.)', '2027 (Proj.)'],
+                    datasets: [{
+                        label: 'Gig Economy Market Size (Indexed)',
+                        data: [100, 115, 132, 152, 175],
+                        backgroundColor: 'rgba(0, 148, 255, 0.2)',
+                        borderColor: colors.brightBlue,
+                        fill: true,
+                        tension: 0.3
+                    }]
+                },
+                options: commonChartOptions
+            });
+
+            new Chart(document.getElementById('motivatorsChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['Faster Client Wins', 'Charge Higher Rates', 'Long-term Credibility', 'Other'],
+                    datasets: [{
+                        label: '% of Freelancers',
+                        data: [60, 30, 8, 2],
+                        backgroundColor: colors.blue,
+                        borderColor: colors.darkBlue,
+                        borderWidth: 1
+                    }]
+                },
+                options: { ...commonChartOptions, indexAxis: 'y' }
+            });
+
+            new Chart(document.getElementById('mobileChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['"Very Important"', 'Neutral/Not Important'],
+                    datasets: [{
+                        data: [85, 15],
+                        backgroundColor: [colors.blue, colors.lightBlue],
+                        borderColor: '#ffffff',
+                        borderWidth: 2
+                    }]
+                },
+                options: commonDoughnutOptions
+            });
+
+            new Chart(document.getElementById('radarChart'), {
+                type: 'radar',
+                data: {
+                    labels: ['Trust', 'Verification', 'Skill Matching', 'Mentorship', 'Scalability'],
+                    datasets: [
+                        {
+                            label: 'ReviewBoost',
+                            data: [9, 10, 8, 9, 7],
+                            backgroundColor: 'rgba(0, 74, 173, 0.2)',
+                            borderColor: colors.blue,
+                            pointBackgroundColor: colors.blue,
+                            pointBorderColor: '#fff',
+                            pointHoverBackgroundColor: '#fff',
+                            pointHoverBorderColor: colors.blue
+                        },
+                        {
+                            label: 'Review Farms',
+                            data: [1, 2, 1, 0, 8],
+                            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                            borderColor: 'rgb(255, 99, 132)',
+                            pointBackgroundColor: 'rgb(255, 99, 132)',
+                            pointBorderColor: '#fff',
+                            pointHoverBackgroundColor: '#fff',
+                            pointHoverBorderColor: 'rgb(255, 99, 132)'
+                        },
+                        {
+                            label: 'Endorsement Tools',
+                            data: [4, 3, 3, 2, 5],
+                            backgroundColor: 'rgba(255, 205, 86, 0.2)',
+                            borderColor: 'rgb(255, 205, 86)',
+                            pointBackgroundColor: 'rgb(255, 205, 86)',
+                            pointBorderColor: '#fff',
+                            pointHoverBackgroundColor: '#fff',
+                            pointHoverBorderColor: 'rgb(255, 205, 86)'
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                title: customTooltipTitle
+                            }
+                        },
+                        legend: {
+                           position: 'bottom',
+                            labels: {
+                                color: '#1f2937'
+                            }
+                        }
+                    },
+                    scales: {
+                        r: {
+                            angleLines: { color: '#e5e7eb' },
+                            grid: { color: '#e5e7eb' },
+                            pointLabels: { color: '#1f2937', font: { weight: 'bold' } },
+                            ticks: {
+                                color: '#4b5563',
+                                backdropColor: 'rgba(255, 255, 255, 0.75)',
+                                stepSize: 2
+                            },
+                            suggestedMin: 0,
+                            suggestedMax: 10
+                        }
+                    }
+                }
+            });
+
+            new Chart(document.getElementById('marketSizingChart'), {
+                type: 'bar',
+                data: {
+                    labels: [
+                        ['Total Addressable', 'Market (TAM)'], 
+                        ['Serviceable Available', 'Market (SAM)'], 
+                        ['Serviceable Obtainable', 'Market (SOM) (Y1)']
+                    ],
+                    datasets: [{
+                        label: 'Market Value (USD)',
+                        data: [2000000000, 500000000, 5000000],
+                        backgroundColor: [colors.darkBlue, colors.blue, colors.brightBlue],
+                        borderColor: '#ffffff',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                title: customTooltipTitle,
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed.y !== null) {
+                                        label += new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', notation: 'compact' }).format(context.parsed.y);
+                                    }
+                                    return label;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            ticks: { color: '#4b5563', font: { weight: 'bold' } },
+                            grid: { display: false }
+                        },
+                        y: {
+                            type: 'logarithmic',
+                            ticks: { 
+                                color: '#4b5563',
+                                callback: function(value, index, ticks) {
+                                    return new Intl.NumberFormat('en-US', { notation: 'compact', maximumFractionDigits: 0 }).format(value);
+                                }
+                            },
+                            grid: { color: '#e5e7eb' }
+                        }
+                    }
+                }
+            });
+
+        });
+    </script>
+</body>
+</html>
